@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1058108591199",
+    "project_id": "exorabeverage-fsm",
+    "storage_bucket": "exorabeverage-fsm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058108591199:android:e67746a25341df4623dfea",
+        "android_client_info": {
+          "package_name": "com.exorabeveragefsm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058108591199-c2j1rmavbmpsegvn4suugb84dmr6egjl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlEM_Xuwr8JAcvVqjzppBLDnPUIpoK4O0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058108591199-c2j1rmavbmpsegvn4suugb84dmr6egjl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
