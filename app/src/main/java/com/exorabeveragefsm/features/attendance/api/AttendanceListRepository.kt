@@ -1,8 +1,6 @@
 package com.exorabeveragefsm.features.attendance.api
 
-import com.exorabeveragefsm.features.attendance.model.AttendanceRequest
-import com.exorabeveragefsm.features.attendance.model.AttendanceResponse
-import com.exorabeveragefsm.features.attendance.model.DayStartEndListResponse
+import com.exorabeveragefsm.features.attendance.model.*
 import io.reactivex.Observable
 
 /**
@@ -15,5 +13,9 @@ class AttendanceListRepository(val apiService: AttendanceListApi) {
 
     fun getDayStartEndList(attendanceRequest: AttendanceRequest?): Observable<DayStartEndListResponse> {
         return apiService.getDayStartEndListAPI(attendanceRequest)
+    }
+
+    fun getNotVisitedPartyList(inputRequest: InputRequest?): Observable<OutputResponse> {
+        return apiService.getPartyListNotVisited(inputRequest)
     }
 }

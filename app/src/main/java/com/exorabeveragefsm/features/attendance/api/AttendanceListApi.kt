@@ -1,9 +1,7 @@
 package com.exorabeveragefsm.features.attendance.api
 
 import com.exorabeveragefsm.app.NetworkConstant
-import com.exorabeveragefsm.features.attendance.model.AttendanceRequest
-import com.exorabeveragefsm.features.attendance.model.AttendanceResponse
-import com.exorabeveragefsm.features.attendance.model.DayStartEndListResponse
+import com.exorabeveragefsm.features.attendance.model.*
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -20,6 +18,9 @@ interface AttendanceListApi {
 
     @POST("UserWiseDayStartEnd/UserDayStartEndList")
     fun getDayStartEndListAPI(@Body attendanceReq: AttendanceRequest?): Observable<DayStartEndListResponse>
+
+    @POST("Shoplist/PartyNotVisitedList")
+    fun getPartyListNotVisited(@Body reqBody: InputRequest?): Observable<OutputResponse>
 
     /**
      * Companion object to create the AttendanceListApi

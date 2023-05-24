@@ -151,6 +151,23 @@ class ProtoRegistrationFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun initView(view: View) {
+
+        //extra code
+        /*var chart:PieChartView = view.findViewById(R.id.chart)
+        val pieData: ArrayList<SliceValue> = ArrayList()
+        pieData.add(SliceValue(15f, Color.BLUE).setLabel("A"))
+        pieData.add(SliceValue(25f, Color.GRAY).setLabel("B"))
+        pieData.add(SliceValue(10f, Color.RED).setLabel("C"))
+        pieData.add(SliceValue(60f, Color.MAGENTA).setLabel("D : 60%"))
+        val pieChartData = PieChartData(pieData)
+        pieChartData.setHasLabels(true)
+        pieChartData.valueLabelTextSize = 15
+        pieChartData.setHasCenterCircle(true)
+        pieChartData.centerText1 = "Center"
+        pieChartData.slicesSpacing = 5
+        chart.setPieChartData(pieChartData);*/
+
+
         et_attachment = view.findViewById(R.id.et_attachment)
         et_photo = view.findViewById(R.id.et_photo)
         mRv_userList = view.findViewById(R.id.rv_frag_photo_reg)

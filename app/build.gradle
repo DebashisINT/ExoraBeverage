@@ -19,13 +19,13 @@ apply plugin: 'de.undercouch.download'
 android {
 
     compileSdkVersion 32
-    buildToolsVersion "32.0.0"
+    //buildToolsVersion "32.0.0"
     defaultConfig {
         applicationId "com.exorabeveragefsm"
         minSdkVersion 26
         targetSdkVersion 32
-        versionCode 110
-        versionName "4.0.7"
+        versionCode 111
+        versionName "4.0.8"
         //versionName "2.3.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -303,6 +303,10 @@ dependencies {
     //Treessence does not include Timber
     implementation 'com.jakewharton.timber:timber:5.0.1'
     implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    implementation 'com.github.AAChartModel:AAChartCore-Kotlin:7.2.0'
+    // lifecycle for room mantis 0025753
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+
 }
 
 

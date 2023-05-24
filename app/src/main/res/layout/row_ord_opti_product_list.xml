@@ -116,7 +116,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:gravity="center|start|top"
-                        android:hint="Mrp"
+                        android:hint="MRP"
                         android:enabled="false"
                         android:imeOptions="actionNext"
                         android:inputType="numberDecimal"

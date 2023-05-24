@@ -14,18 +14,15 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.provider.MediaStore.Images.Media.getBitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import com.exorabeveragefsm.R
-import com.exorabeveragefsm.app.AppDatabase
 import com.exorabeveragefsm.app.NetworkConstant
 import com.exorabeveragefsm.app.Pref
 import com.exorabeveragefsm.app.domain.AddShopDBModelEntity
@@ -36,15 +33,10 @@ import com.exorabeveragefsm.base.BaseResponse
 import com.exorabeveragefsm.base.presentation.BaseActivity
 import com.exorabeveragefsm.base.presentation.BaseFragment
 import com.exorabeveragefsm.features.addshop.api.AddShopRepositoryProvider
-import com.exorabeveragefsm.features.addshop.model.assigntopplist.AddShopUploadImg
 import com.exorabeveragefsm.features.addshop.model.assigntopplist.AddshopImageMultiReqbody1
 import com.exorabeveragefsm.features.addshop.model.imageListResponse
-import com.exorabeveragefsm.features.beatCustom.BeatGetStatusModel
-import com.exorabeveragefsm.features.beatCustom.api.GetBeatRegProvider
 import com.exorabeveragefsm.features.dashboard.presentation.DashboardActivity
-import com.exorabeveragefsm.features.marketing.model.MarketingDetailImageData
 import com.exorabeveragefsm.widgets.AppCustomTextView
-
 import com.pnikosis.materialishprogress.ProgressWheel
 import com.squareup.picasso.Cache
 import com.squareup.picasso.MemoryPolicy
@@ -435,7 +427,6 @@ class MultipleImageFragment: BaseFragment(),
         }
         pictureDialog.show()
     }
-
     fun onRequestPermission(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         permissionUtils?.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }

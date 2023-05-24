@@ -15,6 +15,8 @@ import com.exorabeveragefsm.features.lead.model.LeadActivityEntity
 import com.exorabeveragefsm.features.location.UserLocationDataDao
 import com.exorabeveragefsm.features.location.UserLocationDataEntity
 import com.exorabeveragefsm.features.login.*
+import com.exorabeveragefsm.features.taskManagement.model.TaskManagementDao
+import com.exorabeveragefsm.features.taskManagement.model.TaskManagmentEntity
 
 
 /*
@@ -63,8 +65,8 @@ import com.exorabeveragefsm.features.login.*
         NewOrderGenderEntity::class, NewOrderProductEntity::class, NewOrderColorEntity::class, NewOrderSizeEntity::class, NewOrderScrOrderEntity::class, ProspectEntity::class,
         QuestionEntity::class, QuestionSubmitEntity::class, AddShopSecondaryImgEntity::class, ReturnDetailsEntity::class, ReturnProductListEntity::class, UserWiseLeaveListEntity::class, ShopFeedbackEntity::class, ShopFeedbackTempEntity::class, LeadActivityEntity::class,
         ShopDtlsTeamEntity::class, CollDtlsTeamEntity::class, BillDtlsTeamEntity::class, OrderDtlsTeamEntity::class,
-        TeamAllShopDBModelEntity::class, DistWiseOrderTblEntity::class, NewGpsStatusEntity::class,ShopExtraContactEntity::class,ProductOnlineRateTempEntity::class),
-        version = 1, exportSchema = false)
+        TeamAllShopDBModelEntity::class, DistWiseOrderTblEntity::class, NewGpsStatusEntity::class,ShopExtraContactEntity::class,ProductOnlineRateTempEntity::class, TaskManagmentEntity::class),
+        version = 2, exportSchema = false)
 @TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun addShopEntryDao(): AddShopDao
@@ -203,6 +205,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun productOnlineRateTempDao(): ProductOnlineRateTempDao
 
 
+    abstract fun taskManagementDao(): TaskManagementDao
+
+
     companion object {
         var INSTANCE: AppDatabase? = null
 
@@ -212,9 +217,7 @@ abstract class AppDatabase : RoomDatabase() {
                         // allow queries on the main thread.
                         // Don't do this on a real app! See PersistenceBasicSample for an example.
                         .allowMainThreadQueries()
-                        .addMigrations(
-
-                        )
+                        .addMigrations(MIGRATION_1_2)
 //                        .fallbackToDestructiveMigration()
                         .build()
             }
@@ -229,7 +232,21 @@ abstract class AppDatabase : RoomDatabase() {
             INSTANCE = null
         }
 
+        val MIGRATION_1_2: Migration = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("alter table shop_activity ADD COLUMN distFromProfileAddrKms TEXT")
+                database.execSQL("alter table shop_activity ADD COLUMN stationCode TEXT")
+                database.execSQL("CREATE TABLE task_activity (id INTEGER NOT NULL PRIMARY KEY, task_status_id TEXT, task_date TEXT, task_time TEXT, task_status TEXT, " +
+                        "task_details TEXT, other_remarks TEXT,task_next_date TEXT)")
+
+            }
+        }
+
+
     }
+
+
+//}
 
 
 }
